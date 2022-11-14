@@ -1,5 +1,6 @@
 #include "SatirListesi.hpp"
 #include "YoneticiListesi.hpp"
+#include "utils.cpp"
 
 #include <fstream>
 #include <sstream>
@@ -50,10 +51,12 @@ int main()
 
 
 	bool flag = true;
+	int end = 8;
 	while (flag)
 	{
 		system("clear");
-		cout << *yntLst;
+
+		printYoneticiNodes(yntLst, end);
 
 		char islem;
 		cout << "islem: ";
@@ -62,6 +65,24 @@ int main()
 
 		switch (islem)
 		{
+		
+		case 'd':
+		{
+			if (end < yntLst->Size())
+			{
+				end += 8;
+			}
+			break;
+		}
+
+		case 'a':
+		{
+			if (end != 8)
+			{
+				end -= 8;
+			}
+			break;
+		}
 
 		case 'q':
 			flag = false;
@@ -76,7 +97,7 @@ int main()
 			break;
 		}
 
-		case 'd':
+		case 'z':
 		{
 			int index;
 			string s;
@@ -84,12 +105,8 @@ int main()
 			cin >> index;
 
 			cout << *yntLst;
-			cout << endl;
-			cout << endl;
-			for (int i = 0; i < index; i++)
-			{
-				cout << setw(16) << " ";
-			}
+			
+			
 
 			yntLst->tempDisplay(index);
 			cout << "devam";

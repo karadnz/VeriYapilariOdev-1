@@ -30,6 +30,9 @@ class YoneticiListesi
 	int indexOf(SatirListesi *&item);
 	SatirListesi *&elementAt(int index);
 	friend ostream &operator<<(ostream &OUT, YoneticiListesi &LIST);
+	friend void printYoneticiNodes(YoneticiListesi *LIST, int start);
+	//YoneticiListesiNode *&YoneticiListesiNodeAt(int index);
+
 	void printLine(int count);
 	void tempDisplay(int index);
 	void clear();
