@@ -180,7 +180,7 @@ SatirListesi *&YoneticiListesi::elementAt(int index)
 		throw("No Such Element");
 
 	if (index == 0)
-		return head->data;
+		return head->next->data;
 	return FindPrevByPosition(index)->next->data;
 }
 
@@ -190,13 +190,57 @@ ostream &operator<<(ostream &OUT, YoneticiListesi &LIST)
 	{
 		int index = 0;
 
+		OUT << endl;
+		OUT << endl;
+
+		
+
+		for (YoneticiListesiNode *itr = LIST.head->next; itr != NULL; itr = itr->next)
+		{
+			OUT << " ";
+			OUT << itr;
+			OUT << " ";
+			OUT << " ";
+			OUT << " ";
+		}
+
+		OUT << endl;
 		LIST.printLine(LIST.Size());
 
 		for (YoneticiListesiNode *itr = LIST.head->next; itr != NULL; itr = itr->next)
 		{
-			OUT << itr << "  ";
+			OUT << "|";
+			OUT << setw(14) << itr->prev;
+			OUT << "|  ";
 		}
-		cout << "List size: " << LIST.size << endl;
+
+		OUT << endl;
+		LIST.printLine(LIST.Size());
+
+		for (YoneticiListesiNode *itr = LIST.head->next; itr != NULL; itr = itr->next)
+		{
+			OUT << "|";
+			OUT << setw(14) << itr->average;
+			OUT << "|  ";
+		}
+
+		OUT << endl;
+		LIST.printLine(LIST.Size());
+
+		for (YoneticiListesiNode *itr = LIST.head->next; itr != NULL; itr = itr->next)
+		{
+			OUT << "|";
+			OUT << setw(14) << itr->next;
+			OUT << "|  ";
+		}
+
+		OUT << endl;
+		LIST.printLine(LIST.Size());
+
+
+
+		cout << endl << "List size: " << LIST.size << endl;
+
 		return OUT;
 	}
 
@@ -208,7 +252,7 @@ void YoneticiListesi::printLine(int count)
 {
 	for (int i = 0; i < count; i++)
 	{
-		cout << "--------------  ";
+		cout << "----------------  ";
 	}
 	cout << endl;
 }

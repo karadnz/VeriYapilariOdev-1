@@ -1,7 +1,7 @@
 #include "SatirListesiNode.hpp"
 
 
-SatirListesiNode::SatirListesiNode(const int data, SatirListesiNode *next = NULL, SatirListesiNode *prev = NULL)
+SatirListesiNode::SatirListesiNode(const int data, SatirListesiNode *next, SatirListesiNode *prev)
 {
 	this->data = data;
 	this->next = next;

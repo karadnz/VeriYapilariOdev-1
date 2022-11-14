@@ -211,16 +211,54 @@ ostream &operator<<(ostream &OUT, SatirListesi &LIST)
 	{
 		int index = 0;
 
+		
+		OUT<< endl;
+		cout << "^^^^^^^^^^^^^^^^  ";
+		OUT<< endl;
+		
+
+
 		for (SatirListesiNode *itr = LIST.head->next; itr != NULL; itr = itr->next)
 		{
-			OUT << index << ". node ||  adress: " << itr << " || content: " << itr->data << " || address of next node: " << itr->next << " || address of prev node: " << itr->prev << endl;
+			LIST.printLine(1);
 
-			index++;
+			OUT << "|";
+			OUT << setw(14) << itr->data;
+			OUT << "|  ";
+
+			OUT << endl;
+
+			
+			LIST.printLine(1);
+
+			OUT << "|";
+			OUT << setw(14) << itr->next;
+			OUT << "|  ";
+
+			OUT << endl;
+			LIST.printLine(1);
+
+			OUT << endl;
 		}
+
+		OUT << endl;
+
+
+
 		cout << "List size: " << LIST.size << endl;
 		return OUT;
 	}
 
 	OUT << "Empty list" << endl;
 	return OUT;
+}
+
+
+void SatirListesi::printLine(int count)
+{
+	for (int i = 0; i < count; i++)
+	{
+		cout << "----------------  ";
+	}
+	cout << endl;
 }

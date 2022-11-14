@@ -32,6 +32,7 @@ class SatirListesi
 	int		indexOf(const int& item);
 	const int& elementAt(int index);
 	friend ostream& operator<<(ostream& OUT, SatirListesi& LIST);
+	void	printLine(int count);
 	void	clear();
 	~SatirListesi();
 

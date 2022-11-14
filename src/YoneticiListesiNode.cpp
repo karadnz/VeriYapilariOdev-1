@@ -1,6 +1,6 @@
 #include "YoneticiListesiNode.hpp"
 
-YoneticiListesiNode::YoneticiListesiNode(SatirListesi *data, YoneticiListesiNode *next = NULL, YoneticiListesiNode *prev = NULL)
+YoneticiListesiNode::YoneticiListesiNode(SatirListesi *data, YoneticiListesiNode *next, YoneticiListesiNode *prev)
 {
 	this->data = data;
 	this->next = next;
