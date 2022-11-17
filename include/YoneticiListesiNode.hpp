@@ -13,6 +13,8 @@ class YoneticiListesiNode
 	YoneticiListesiNode *prev;
 
 	YoneticiListesiNode(SatirListesi *data, YoneticiListesiNode *next =NULL, YoneticiListesiNode *prev = NULL);
+
+	
 	double getAverage();
 
 };

@@ -21,7 +21,7 @@ SatirListesiNode *SatirListesi::FindPrevByPosition(int pos)
 
 SatirListesi::SatirListesi()
 {
-	this->head = new SatirListesiNode(int());
+	this->head = new SatirListesiNode(0);
 	this->size = 0;
 }
 
@@ -184,7 +184,7 @@ const int& SatirListesi::SatirListesi::elementAt(int index)
 		throw ("No Such Element");
 
 	if (index == 0)
-		return head->data;
+		return head->next->data;
 	return FindPrevByPosition(index)->next->data;
 }
 
@@ -202,6 +202,12 @@ SatirListesi::~SatirListesi()
 {
 	clear();
 	delete head;
+}
+
+
+SatirListesiNode* SatirListesi::getHead()
+{
+	return this->head;
 }
 
 

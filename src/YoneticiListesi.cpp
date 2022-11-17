@@ -193,8 +193,6 @@ ostream &operator<<(ostream &OUT, YoneticiListesi &LIST)
 		OUT << endl;
 		OUT << endl;
 
-		
-
 		for (YoneticiListesiNode *itr = LIST.head->next; itr != NULL; itr = itr->next)
 		{
 			OUT << " ";
@@ -237,9 +235,8 @@ ostream &operator<<(ostream &OUT, YoneticiListesi &LIST)
 		OUT << endl;
 		LIST.printLine(LIST.Size());
 
-
-
-		cout << endl << "List size: " << LIST.size << endl;
+		cout << endl
+			 << "List size: " << LIST.size << endl;
 
 		return OUT;
 	}
@@ -267,6 +264,48 @@ void YoneticiListesi::clear()
 	while (!isEmpty())
 	{
 		removeAt(0);
+	}
+}
+
+void YoneticiListesi::sort()
+{
+	if (isEmpty())
+		throw("empty list");
+
+	for (int i = 0; i < size; i++)
+	{
+		for (YoneticiListesiNode *inner = this->head->next; inner->next != NULL; inner = inner->next)
+		{
+			if (inner->average > inner->next->average)
+			{
+
+				YoneticiListesiNode *node1 = inner;
+				YoneticiListesiNode *node2 = inner->next;
+
+				YoneticiListesiNode *node1Prev = inner->prev;
+
+
+				node1->next = node2->next;
+				node1->prev = node2;
+
+				node2->next = node1;
+				node2->prev = node1Prev;
+
+				if (node1->next != NULL)
+				{
+					node1->next->prev = node1;
+				}
+
+				if (node2->prev != NULL)
+				{
+					node2->prev->next = node2;
+				}
+				else
+				{
+					head->next = node2;
+				}
+			}
+		}
 	}
 }
 

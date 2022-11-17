@@ -1,6 +1,7 @@
 #include "SatirListesi.hpp"
 #include "YoneticiListesi.hpp"
 #include "utils.cpp"
+#include "navUtils.cpp"
 
 #include <fstream>
 #include <sstream>
@@ -9,54 +10,24 @@ using namespace std;
 
 int main()
 {
-	string line;
-	ifstream dataFile("./veri.txt");
-	
 
 	YoneticiListesi *yntLst = new YoneticiListesi;
-
-	while (getline(dataFile, line))
-	{
-		cout << line << endl;
-
-		
-		SatirListesi *strLst = new SatirListesi;
-
-		char dl = ' ';
-		line += dl;
-		string word;
-
-		for (int i = 0; i < line.length(); i++)
-		{
-
-			if (line[i] != dl)
-			{
-				word += line[i];
-			}
-
-			
-
-			else
-			{
-				cout<<word<<"$"<<endl;
-				strLst->add(stoi(word));
-				word ="";
-			}
-
-		}
-		yntLst->add(strLst);
-	}
-
-	dataFile.close();
-
+	yoneticiInit(yntLst);
 
 	bool flag = true;
-	int end = 8;
+	bool delFlag = false;
+	int delIndex = 0;
+
+	int end = 8;	  // last index+1 to display
+	int selected = 0; // index in page
+	
 	while (flag)
 	{
 		system("clear");
 
+		yntLst->sort();
 		printYoneticiNodes(yntLst, end);
+		printSelectedSatirListesi(yntLst, selected, end, delFlag, delIndex);
 
 		char islem;
 		cout << "islem: ";
@@ -65,52 +36,55 @@ int main()
 
 		switch (islem)
 		{
-		
-		case 'd':
+		case 'z':
 		{
-			if (end < yntLst->Size())
-			{
-				end += 8;
-			}
+			navOneBack(yntLst, end, selected);
+			delIndex = 0;
+			delFlag = 0;
+			break;
+		}
+
+		case 'c':
+		{
+			navOneForward(yntLst, end, selected);
+			delIndex = 0;
+			delFlag = 0;
 			break;
 		}
 
 		case 'a':
 		{
-			if (end != 8)
-			{
-				end -= 8;
-			}
+			navPageBack(yntLst, end, selected);
+			delIndex = 0;
+			delFlag = 0;
+			break;
+		}
+
+		case 'd':
+		{
+			navPageForward(yntLst, end, selected);
+			delIndex = 0;
+			delFlag = 0;
+			break;
+		}
+
+		case 'p':
+		{
+			navDelYoneticiNode(yntLst, end, selected);
+			delIndex = 0;
+			delFlag = 0;
+			break;
+		}
+
+		case 'k':
+		{
+			navRandomDel(yntLst, end, selected, delFlag, delIndex);
 			break;
 		}
 
 		case 'q':
+		{
 			flag = false;
-			break;
-
-		case 'r':
-		{
-			int index;
-			cout << "index to remove";
-			cin >> index;
-			yntLst->removeAt(index);
-			break;
-		}
-
-		case 'z':
-		{
-			int index;
-			string s;
-			cout << "index to display";
-			cin >> index;
-
-			cout << *yntLst;
-			
-			
-
-			yntLst->tempDisplay(index);
-			cout << "devam";
-			cin >> s;
 			break;
 		}
 
