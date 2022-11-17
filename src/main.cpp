@@ -18,14 +18,19 @@ int main()
 	bool delFlag = false;
 	int delIndex = 0;
 
+	string debug;
+
 	int end = 8;	  // last index+1 to display
 	int selected = 0; // index in page
 	
 	while (flag)
 	{
+		
 		system("clear");
 
 		yntLst->sort();
+
+	
 		printYoneticiNodes(yntLst, end);
 		printSelectedSatirListesi(yntLst, selected, end, delFlag, delIndex);
 

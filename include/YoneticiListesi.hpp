@@ -38,6 +38,8 @@ class YoneticiListesi
 	friend void printYoneticiNodes(YoneticiListesi *LIST, int start);
 	friend void printSelectedSatirListesi(YoneticiListesi *LIST, int selected, int end, bool delFlag, int delIndex);
 	friend void navRandomDel(YoneticiListesi *yntLst, int &end, int &selected, bool& delFlag, int& delIndex);
+
+
 	//YoneticiListesiNode *&YoneticiListesiNodeAt(int index);
 
 	void printLine(int count);

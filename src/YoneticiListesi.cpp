@@ -274,35 +274,42 @@ void YoneticiListesi::sort()
 
 	for (int i = 0; i < size; i++)
 	{
-		for (YoneticiListesiNode *inner = this->head->next; inner->next != NULL; inner = inner->next)
+		for (int j = 0; j < size - 1; j++)
 		{
-			if (inner->average > inner->next->average)
+			
+			YoneticiListesiNode *node1 = this->FindPrevByPosition(j)->next;
+			YoneticiListesiNode *node2 = this->FindPrevByPosition(j)->next->next;
+
+			if (node1->average > node2->average)
 			{
 
-				YoneticiListesiNode *node1 = inner;
-				YoneticiListesiNode *node2 = inner->next;
-
-				YoneticiListesiNode *node1Prev = inner->prev;
+				YoneticiListesiNode *node1Prev = node1->prev;
 
 
 				node1->next = node2->next;
 				node1->prev = node2;
+				
 
 				node2->next = node1;
 				node2->prev = node1Prev;
+
+				
 
 				if (node1->next != NULL)
 				{
 					node1->next->prev = node1;
 				}
+				
 
 				if (node2->prev != NULL)
 				{
 					node2->prev->next = node2;
+					
 				}
+				
 				else
 				{
-					head->next = node2;
+					this->head->next = node2;
 				}
 			}
 		}

@@ -172,7 +172,7 @@ void printSpace(int selected)
 void	yoneticiInit(YoneticiListesi *yntLst)
 {
 	string line;
-	ifstream dataFile("./veri.txt");
+	ifstream dataFile("./veriler.txt");
 
 
 	while (getline(dataFile, line))
@@ -189,23 +189,31 @@ void	yoneticiInit(YoneticiListesi *yntLst)
 		for (int i = 0; i < line.length(); i++)
 		{
 
-			if (line[i] != dl)
+			if (isdigit(line[i]))
 			{
 				word += line[i];
 			}
 
 			
 
-			else
+			else if (!word.empty())
 			{
+				cout <<endl << "index: " << i <<"isdigit: " << isdigit(line[i]) << endl;
 				cout<<word<<"$"<<endl;
 				strLst->add(stoi(word));
-				word ="";
+				word.clear();
 			}
+			
 
 		}
-		yntLst->add(strLst);
+		if (!strLst->isEmpty())
+		{
+			yntLst->add(strLst);
+
+		}
+		
 	}
 
 	dataFile.close();
 }
+

@@ -91,6 +91,8 @@ void navRandomDel(YoneticiListesi *yntLst, int &end, int &selected, bool& delFla
     {
         
         yntLst->FindPrevByPosition(selectedIndex)->next->data->removeAt(delIndex);
+        yntLst->FindPrevByPosition(selectedIndex)->next->average = yntLst->FindPrevByPosition(selectedIndex)->next->getAverage();
+        
     
         if (yntLst->FindPrevByPosition(selectedIndex)->next->data->isEmpty())
         {
