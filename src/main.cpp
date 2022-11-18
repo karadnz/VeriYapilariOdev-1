@@ -13,6 +13,8 @@
 
 using namespace std;
 
+//bas son oklarini ekle
+
 int main()
 {
 
@@ -23,7 +25,7 @@ int main()
 	bool delFlag = false;
 	int delIndex = 0;
 
-	string debug;
+	
 
 	int end = 8;	  // last index+1 to display
 	int selected = 0; // index in page
