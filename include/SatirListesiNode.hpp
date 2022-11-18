@@ -1,5 +1,5 @@
 /**
-* @file main.cpp
+* @file SatirListesiNode.hpp
 * @description Header File.
 * @course 2-A
 * @assignment 1.

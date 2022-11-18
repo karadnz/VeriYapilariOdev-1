@@ -1,5 +1,5 @@
 /**
-* @file main.cpp
+* @file SatirListesi.hpp
 * @description Header file.
 * @course 2-A
 * @assignment 1.
@@ -11,7 +11,7 @@
 
 
 #include "SatirListesiNode.hpp"
-//#include "NoSuchElement.hpp"
+
 #include <iomanip>
 
 class SatirListesi
@@ -44,8 +44,7 @@ class SatirListesi
 
 	SatirListesiNode* getHead();
 	friend ostream& operator<<(ostream& OUT, SatirListesi& LIST);
-	//friend void printSelectedSatirListesi(YoneticiListesi *LIST, int selected, int end);
-	////
+	
 	void	printLine(int count);
 	void	clear();
 	~SatirListesi();

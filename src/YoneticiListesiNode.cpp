@@ -1,5 +1,5 @@
 /**
-* @file main.cpp
+* @file YoneticiListesiNode.cpp
 * @description cpp file for YoneticiListesiNode.hpp.
 * @course 2-A
 * @assignment 1.

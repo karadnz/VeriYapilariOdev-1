@@ -1,5 +1,5 @@
 /**
-* @file main.cpp
+* @file utils.hpp
 * @description Header file.
 * @course 2-A
 * @assignment 1.
