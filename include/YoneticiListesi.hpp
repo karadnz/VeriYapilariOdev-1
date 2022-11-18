@@ -48,7 +48,7 @@ class YoneticiListesi
 	friend void navRandomDel(YoneticiListesi *yntLst, int &end, int &selected, bool& delFlag, int& delIndex);
 
 
-	//YoneticiListesiNode *&YoneticiListesiNodeAt(int index);
+	
 
 	void printLine(int count);
 	void tempDisplay(int index);

@@ -9,11 +9,6 @@
 #include "utils.hpp"
 
 
-
-//hpp yap
-
-
-
 void printLine(int count)
 {
 	for (int i = 0; i < count; i++)
@@ -154,7 +149,7 @@ void printSelectedSatirListesi(YoneticiListesi *LIST, int selected, int end, boo
 	
 }
 
-void printSelectedLine(int selected)//yonetici line fonskiyonu icine at
+void printSelectedLine(int selected)
 {
 	printSpace(selected);
 

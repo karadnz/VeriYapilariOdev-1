@@ -97,7 +97,7 @@ SatirListesi *&YoneticiListesi::last()
 
 void YoneticiListesi::remove(SatirListesi *&item)
 {
-	int pos = indexOf(item); // birden fazla ayni sayi varsa???
+	int pos = indexOf(item); 
 	removeAt(pos);
 }
 
@@ -113,13 +113,13 @@ void YoneticiListesi::removeAt(int index)
 	if (index == 0)
 	{
 		del = head;
-		head = head->next; // this bak
+		head = head->next; 
 
 		if (head != NULL)
 		{
 			head->prev = NULL;
 		}
-		// head in gerisini null atiyor
+		
 	}
 	else
 	{

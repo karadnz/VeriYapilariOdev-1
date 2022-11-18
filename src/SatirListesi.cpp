@@ -61,7 +61,7 @@ void SatirListesi::insert(int index, const int &num) // niye const ve reference
 		{
 			this->head->next->next->prev = head;
 		}
-		// ilerisi bos degilse bi sonraki node in previni head olarak atiyor
+		
 	}
 
 	else
@@ -74,14 +74,13 @@ void SatirListesi::insert(int index, const int &num) // niye const ve reference
 		{
 			prev->next->next->prev = prev->next;
 		}
-		// eklenen node dan sonraki node bos degilse sonraki node in previne eklenen
-		// node in adresini atiyor
+		
 	}
 
 	size++;
 }
 
-const int& SatirListesi::first() // niye reference
+const int& SatirListesi::first() 
 {
 	if (isEmpty())
 	{
@@ -90,7 +89,7 @@ const int& SatirListesi::first() // niye reference
 	return (this->head->data);
 }
 
-const int& SatirListesi::last() // niye reference
+const int& SatirListesi::last() 
 {
 	if (isEmpty())
 	{
@@ -101,7 +100,7 @@ const int& SatirListesi::last() // niye reference
 
 void SatirListesi::remove(const int &num)
 {
-	int pos = indexOf(num); // birden fazla ayni sayi varsa???
+	int pos = indexOf(num);
 	removeAt(pos);
 }
 
@@ -117,13 +116,13 @@ void SatirListesi::removeAt(int index)
 	if (index == 0)
 	{
 		del = head;
-		head = head->next; // this bak
+		head = head->next; 
 
 		if (head != NULL)
 		{
 			head->prev = NULL;
 		}
-		// head in gerisini null atiyor
+		
 	}
 	else
 	{
@@ -153,7 +152,7 @@ bool SatirListesi::find(const int &item) const
 	return (false);
 }
 
-void SatirListesi::reverse() /////*****// reversing a double linked list
+void SatirListesi::reverse() 
 {
 	for (SatirListesiNode *itr = head; itr != NULL;)
 	{
