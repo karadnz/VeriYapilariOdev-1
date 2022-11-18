@@ -1,3 +1,11 @@
+/**
+* @file main.cpp
+* @description cpp file for YoneticiListesi.cpp.
+* @course 2-A
+* @assignment 1.
+* @date 
+* @author Mustafa Karadeniz mustafa.karadeniz1@ogr.sakarya.edu.tr
+*/
 #include "YoneticiListesi.hpp"
 
 YoneticiListesiNode *YoneticiListesi::FindPrevByPosition(int pos)

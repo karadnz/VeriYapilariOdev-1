@@ -1,8 +1,15 @@
-
+/**
+* @file main.cpp
+* @description Header file.
+* @course 2-A
+* @assignment 1.
+* @date 
+* @author Mustafa Karadeniz mustafa.karadeniz1@ogr.sakarya.edu.tr
+*/
 #ifndef SATIRLISTESI_HPP
 #define SATIRLISTESI_HPP
 
-//#include "YoneticiListesi.hpp" // printSlectedSatirListesi icin
+
 #include "SatirListesiNode.hpp"
 //#include "NoSuchElement.hpp"
 #include <iomanip>

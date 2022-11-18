@@ -1,3 +1,11 @@
+/**
+* @file main.cpp
+* @description main function.
+* @course 2-A
+* @assignment 1.
+* @date 
+* @author Mustafa Karadeniz mustafa.karadeniz1@ogr.sakarya.edu.tr
+*/
 #include "SatirListesi.hpp"
 #include "YoneticiListesi.hpp"
 #include "utils.hpp"
