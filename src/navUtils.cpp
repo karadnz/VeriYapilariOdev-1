@@ -1,8 +1,7 @@
-#include "SatirListesi.hpp"
-#include "YoneticiListesi.hpp"
+#include "navUtils.hpp"
 
-#include <fstream>
-#include <sstream>
+// #include <fstream>
+// #include <sstream>
 
 void navOneBack(YoneticiListesi *yntLst, int &end, int &selected)
 {
@@ -97,6 +96,7 @@ void navRandomDel(YoneticiListesi *yntLst, int &end, int &selected, bool& delFla
         if (yntLst->FindPrevByPosition(selectedIndex)->next->data->isEmpty())
         {
             yntLst->removeAt(selectedIndex);
+            navOneBack(yntLst, end, selected);
         }
 
         delFlag = 0;

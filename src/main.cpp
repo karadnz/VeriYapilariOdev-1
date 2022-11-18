@@ -1,10 +1,7 @@
 #include "SatirListesi.hpp"
 #include "YoneticiListesi.hpp"
-#include "utils.cpp"
-#include "navUtils.cpp"
-
-#include <fstream>
-#include <sstream>
+#include "utils.hpp"
+#include "navUtils.hpp"
 
 using namespace std;
 
@@ -28,11 +25,20 @@ int main()
 		
 		system("clear");
 
-		yntLst->sort();
+		
 
-	
-		printYoneticiNodes(yntLst, end);
-		printSelectedSatirListesi(yntLst, selected, end, delFlag, delIndex);
+		if(!yntLst->isEmpty())
+		{
+			yntLst->sort();
+			printYoneticiNodes(yntLst, end);
+			printSelectedSatirListesi(yntLst, selected, end, delFlag, delIndex);
+		}
+		else
+		{
+			cout << "empty list";
+			break;
+		}
+		
 
 		char islem;
 		cout << "islem: ";

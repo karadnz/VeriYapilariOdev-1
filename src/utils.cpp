@@ -1,14 +1,10 @@
-#include "SatirListesi.hpp"
-#include "YoneticiListesi.hpp"
+#include "utils.hpp"
 
-#include <fstream>
-#include <sstream>
+
 
 //hpp yap
-using namespace std;
 
-void printSelectedLine(int selected);
-void printSpace(int selected);
+
 
 void printLine(int count)
 {
