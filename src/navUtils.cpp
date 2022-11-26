@@ -8,8 +8,6 @@
 */
 #include "navUtils.hpp"
 
-// #include <fstream>
-// #include <sstream>
 
 void navOneBack(YoneticiListesi *yntLst, int &end, int &selected)
 {
@@ -105,6 +103,10 @@ void navRandomDel(YoneticiListesi *yntLst, int &end, int &selected, bool& delFla
         {
             yntLst->removeAt(selectedIndex);
             navOneBack(yntLst, end, selected);
+        }
+        else
+        {
+            yntLst->sortNode(selectedIndex);
         }
 
         delFlag = 0;

@@ -12,8 +12,8 @@
 #include "SatirListesi.hpp"
 #include "YoneticiListesiNode.hpp"
 #include <iostream>
-#include <stdlib.h>     /* srand, rand */
-#include <time.h>       /* time */
+#include <stdlib.h>     
+#include <time.h>       
 
 class YoneticiListesi
 {
@@ -22,7 +22,7 @@ class YoneticiListesi
 	YoneticiListesiNode *head;
 	int size;
 
-	friend class SatirListesi; ////
+	friend class SatirListesi; 
 
 	YoneticiListesiNode *FindPrevByPosition(int pos);
 
@@ -55,7 +55,9 @@ class YoneticiListesi
 	void clear();
 	
 	void sort();
+	void sortNode(int index);
 	~YoneticiListesi();
+
 
 
 };

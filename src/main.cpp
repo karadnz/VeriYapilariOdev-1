@@ -13,12 +13,15 @@
 
 using namespace std;
 
-//bas son oklarini ekle
-
+//bas son oklari ---> <---
+//https://stackoverflow.com/questions/677812/is-there-a-reason-to-call-delete-in-c-when-a-program-is-exiting-anyway
 int main()
 {
 
 	YoneticiListesi *yntLst = new YoneticiListesi;
+
+	system("clear");
+	cout<<"Initializing the yntLst..(10.000 nodes = 1 second)"<<endl;
 	yoneticiInit(yntLst);
 
 	bool flag = true;
@@ -30,6 +33,14 @@ int main()
 	int end = 8;	  // last index+1 to display
 	int selected = 0; // index in page
 	
+	if (!yntLst->isEmpty())
+	{
+		cout<<"Sorting yntLst for the first time ..(10.000 nodes = 2 seconds)"<<endl;
+		yntLst->sort();
+	}
+	
+	
+	
 	while (flag)
 	{
 		
@@ -39,7 +50,6 @@ int main()
 
 		if(!yntLst->isEmpty())
 		{
-			yntLst->sort();
 			printYoneticiNodes(yntLst, end);
 			printSelectedSatirListesi(yntLst, selected, end, delFlag, delIndex);
 		}
@@ -100,6 +110,7 @@ int main()
 		case 'k':
 		{
 			navRandomDel(yntLst, end, selected, delFlag, delIndex);
+			
 			break;
 		}
 
@@ -114,4 +125,5 @@ int main()
 		}
 	}
 	return (0);
+	delete yntLst;
 }

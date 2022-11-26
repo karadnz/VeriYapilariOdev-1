@@ -12,7 +12,7 @@ SatirListesiNode *SatirListesi::FindPrevByPosition(int pos)
 {
 	if (pos < 0 || pos > size)
 	{
-		throw("No Such Element"); // bak
+		throw("No Such Element"); 
 	}
 
 	int index = 0;
@@ -48,7 +48,7 @@ void SatirListesi::add(const int &num)
 	insert(size, num); // size
 }
 
-void SatirListesi::insert(int index, const int &num) // niye const ve reference
+void SatirListesi::insert(int index, const int &num) 
 {
 	if (index < 0 || index > size)
 		throw "Index out of Range";

@@ -28,7 +28,7 @@ YoneticiListesiNode *YoneticiListesi::FindPrevByPosition(int pos)
 YoneticiListesi::YoneticiListesi()
 {
 
-	this->head = new YoneticiListesiNode(new SatirListesi); ///***
+	this->head = new YoneticiListesiNode(new SatirListesi); 
 	this->size = 0;
 }
 
@@ -44,7 +44,7 @@ bool YoneticiListesi::isEmpty() const
 
 void YoneticiListesi::add(SatirListesi *&item)
 {
-	insert(size, item); // size
+	insert(size, item); 
 }
 
 void YoneticiListesi::insert(int index, SatirListesi *&item)
@@ -112,12 +112,12 @@ void YoneticiListesi::removeAt(int index)
 
 	if (index == 0)
 	{
-		del = head;
-		head = head->next; 
+		del = head->next;
+		head->next = head->next->next; 
 
-		if (head != NULL)
+		if (head->next != NULL)
 		{
-			head->prev = NULL;
+			head->next->prev = NULL;
 		}
 		
 	}
@@ -133,6 +133,7 @@ void YoneticiListesi::removeAt(int index)
 	}
 
 	size--;
+	delete del->data;
 	delete del;
 
 } // |2|x| , |5|x| , |7|x| , |9|x|  removeAt(2) -> |2|x| , |5|x| , |9|x|  ;
@@ -275,6 +276,8 @@ void YoneticiListesi::clear()
 	}
 }
 
+
+
 void YoneticiListesi::sort()
 {
 	if (isEmpty())
@@ -282,11 +285,14 @@ void YoneticiListesi::sort()
 
 	for (int i = 0; i < size; i++)
 	{
-		for (int j = 0; j < size - 1; j++)
+		YoneticiListesiNode *itr = this->head->next;
+
+		for (int j = 0; j < size - 1 - i; j++) 
 		{
 			
-			YoneticiListesiNode *node1 = this->FindPrevByPosition(j)->next;
-			YoneticiListesiNode *node2 = this->FindPrevByPosition(j)->next->next;
+			YoneticiListesiNode *node1 = itr;
+			YoneticiListesiNode *node2 = itr->next;
+			
 
 			if (node1->average > node2->average)
 			{
@@ -320,9 +326,74 @@ void YoneticiListesi::sort()
 					this->head->next = node2;
 				}
 			}
+			else
+			{
+			
+				itr = itr->next;
+			}
+			
+			
 		}
 	}
 }
+
+void YoneticiListesi::sortNode(int index)
+{
+	if (isEmpty())
+		throw("empty list");
+
+	YoneticiListesiNode *toSort = FindPrevByPosition(index)->next;
+	YoneticiListesiNode *itr = this->head->next;
+
+	for(int i = 0; i < size - 1; i++)
+	{
+		if (itr->average > toSort->average)
+		{
+			//toSort u kopar
+			//itr nin bi arkasina koy
+
+			
+			if (toSort->prev != NULL) 
+			{
+				toSort->prev->next = toSort->next;
+			}
+			else
+			{
+				this->head->next = toSort->next;
+			}
+
+
+			if (toSort->next != NULL)
+			{
+				toSort->next->prev = toSort->prev;
+			}
+
+			//-------------------------------------------
+
+			if(itr->prev != NULL)
+			{
+				itr->prev->next =toSort; 
+
+			}
+			else
+			{
+				this->head->next = toSort;
+			}
+
+			toSort->prev = itr->prev;
+			itr->prev = toSort; 
+			toSort->next = itr;
+
+			
+			break;
+		}
+		itr = itr->next;
+	}
+			
+		
+	
+}
+
 
 YoneticiListesi::~YoneticiListesi()
 {

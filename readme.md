@@ -22,8 +22,9 @@ SAU 2022-23 Güz dönemi Veri Yapıları dersi 1. Ödevi
 
 * Heap'te yntLst adında bir YöneticiListesi oluşturulur.
 * `yntLst` 'e  `veriler.txt` dosyasından okunan sayılardan oluşturulan SatirListesi türündeki listelerin adresleri data olarak eklenir.
+* Program, `yntLst` i ortalamaya göre sıralar.
 * Program, `yntLst` dolu olduğu sürece kullanıcı `q` tuşuna basana kadar döngüye girer.
-* Her döngünün başında `yntLst` sıralanır, seçili sayfadaki nodeler ve seçili nodedeki SatirListesi ödevde istenen formatta ekrana yazdırılır.
+* Seçili sayfadaki nodeler ve seçili nodedeki SatirListesi ödevde istenen formatta ekrana yazdırılır.
 * Kullanıcı ödevde belirtilen tuşlarla istediği işlemleri yapar, gerekli koşullar sağlandığında programdan çıkış yapılır.
 ## Tuşlar
 

@@ -26,7 +26,28 @@ void printYoneticiNodes(YoneticiListesi *LIST, int end)
 	int index = 0;
 
 	cout << endl;
+	
+
+	if (end != 8)
+	{
+		cout<<"<---";
+	}
+	else
+	{
+		cout<<"ilk";
+	}
+
+	if (end < LIST->size)
+	{
+		cout<<setw((18 * 8) - 2)<<"--->";
+	}
+	else
+	{
+		cout<<setw((18 * 8) - 2)<<"son";
+	}
+	cout<<endl;
 	cout << endl;
+
 
 	int count = 0;
 	for (YoneticiListesiNode *itr = LIST->FindPrevByPosition(end - 8)->next; itr != NULL && count < 8; itr = itr->next, count++)
@@ -95,7 +116,7 @@ void printSelectedSatirListesi(YoneticiListesi *LIST, int selected, int end, boo
 	{
 		
 
-		//head e ulasmanin baska yolunu bul
+		
 		for (SatirListesiNode *itr = LIST->FindPrevByPosition(index)->next->data->getHead()->next; itr != NULL; itr = itr->next) 
 		{
 			
@@ -176,7 +197,7 @@ void	yoneticiInit(YoneticiListesi *yntLst)
 
 	while (getline(dataFile, line))
 	{
-		cout << line << endl;
+		//cout << line << endl;
 
 		
 		SatirListesi *strLst = new SatirListesi;
@@ -197,8 +218,7 @@ void	yoneticiInit(YoneticiListesi *yntLst)
 
 			else if (!word.empty())
 			{
-				cout <<endl << "index: " << i <<"isdigit: " << isdigit(line[i]) << endl;
-				cout<<word<<"$"<<endl;
+				
 				strLst->add(stoi(word));
 				word.clear();
 			}
