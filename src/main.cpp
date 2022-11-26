@@ -20,7 +20,7 @@ int main()
 
 	YoneticiListesi *yntLst = new YoneticiListesi;
 
-	system("clear");
+	system("cls");
 	cout<<"Initializing the yntLst..(10.000 nodes = 1 second)"<<endl;
 	yoneticiInit(yntLst);
 
@@ -44,7 +44,7 @@ int main()
 	while (flag)
 	{
 		
-		system("clear");
+		system("cls");
 
 		
 
