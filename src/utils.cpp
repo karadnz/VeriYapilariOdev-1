@@ -97,8 +97,7 @@ void printYoneticiNodes(YoneticiListesi *LIST, int end)
 	cout << endl;
 	LIST->printLine(count);
 
-	cout << endl
-		 << "List size: " << LIST->size << endl;
+	cout << endl;
 }
 
 
@@ -163,7 +162,7 @@ void printSelectedSatirListesi(YoneticiListesi *LIST, int selected, int end, boo
 
 		cout << endl;
 		printSpace(selected);
-		cout << LIST->FindPrevByPosition(index)->next->data->Size();
+		
 		cout<<endl;
 
 	}
